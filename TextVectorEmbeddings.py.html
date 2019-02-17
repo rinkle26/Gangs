@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
+path="/Users/rld1996/Downloads/face2text_v0.1"
+
+
+# In[3]:
+
+
+import json
+
+
+# In[5]:
+
+
+js=open(path+"/clean.json")
+
+
+# In[6]:
+
+
+data=json.load(js)
+
+
+# In[19]:
+
+
+caps={}
+caps2={}
+imgs={}
+for d in data:
+    c=[]
+    for desc in d['descriptions']:
+        c.append(desc['desc_id'])
+        text=process(desc['text'])
+        caps2[desc['desc_id']]=desc['text']
+    caps[d['img_id']]=c
+
+
+# In[21]:
+
+
+caps2
+
+
+# In[ ]:
+
+
+
+
